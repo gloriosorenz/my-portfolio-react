@@ -1,102 +1,88 @@
 import perfil2 from "../img/perfil2.png";
 import resume from "../pdf/Renz_Glorioso-CV.docx.pdf";
+import socials from "../js/main";
+import { changeTheme } from "../js/main";
+
+import Button from "./Button";
+import ProfileInfo from "./ProfileInfo";
+
+console.log(changeTheme);
 
 function Profile() {
   return (
     <header className="profile container">
       {/*  Theme Button  */}
-      <i class="ri-moon-line change-theme" id="theme-button"></i>
+      <i
+        onClick={changeTheme}
+        className="ri-moon-line change-theme"
+        id="theme-button"
+        type="button"
+      ></i>
 
       {/* Profile section */}
-      <div class="profile__container grid">
-        <div class="profile__data">
+      <div className="profile__container grid">
+        <div className="profile__data">
           {/* This is your profile image */}
-          <div class="profile__border">
-            <div class="profile__perfil">
+          <div className="profile__border">
+            <div className="profile__perfil">
               <img src={perfil2} alt="profile_img" />
             </div>
           </div>
 
-          <h2 class="profile__name">Renz Glorioso</h2>
-          <h3 class="profile__profession">Web Developer</h3>
+          <h2 className="profile__name">Renz Glorioso</h2>
+          <h3 className="profile__profession">Web Developer</h3>
 
-          <ul class="profile__social">
-            {/* <!-- Codepen --> */}
-            <a
-              href="https://codepen.io/renzboi"
-              //   target="_blank"
-              class="profile__social-link"
-            >
-              <i class="ri-codepen-line"></i>
-            </a>
-            {/* <!-- LinkedIn --> */}
-            <a
-              href="https://www.linkedin.com/in/renzcarloglorioso/"
-              //   target="_blank"
-              class="profile__social-link"
-            >
-              <i class="ri-linkedin-box-line"></i>
-            </a>
-            {/* <!-- Github --> */}
-            <a
-              href="https://github.com/gloriosorenz"
-              //   target="_blank"
-              class="profile__social-link"
-            >
-              <i class="ri-github-line"></i>
-            </a>
+          {/* Display social links */}
+          <ul className="profile__social">
+            {socials.map((s) => {
+              return (
+                <Button
+                  key={s.id}
+                  class={s.class}
+                  icon={s.icon}
+                  href={s.href}
+                  type="button"
+                  target="_blank"
+                />
+              );
+            })}
           </ul>
         </div>
 
         {/* <!-- Profile Info Grid --> */}
         {/* <!-- Remove this section if not needed --> */}
-        <div class="profile__info grid">
-          <div class="profile__info-group">
-            <h3 class="profile__info-number">X</h3>
-            <p class="profile__info-description">
-              Years of <br />
-              work
-            </p>
-          </div>
-          <div class="profile__info-group">
-            <h3 class="profile__info-number">+XX</h3>
-            <p class="profile__info-description">
-              Completed <br />
-              projects
-            </p>
-          </div>
-          <div class="profile__info-group">
-            <h3 class="profile__info-number">XX</h3>
-            <p class="profile__info-description">
-              Satisfied <br />
-              customers
-            </p>
-          </div>
-        </div>
+        <ProfileInfo />
 
-        <div class="profile__buttons">
+        <div className="profile__buttons">
           {/* <!-- Insert your CV --> */}
-          <a href={resume} class="button" download>
-            Download CV <i class="ri-download-line"></i>
-          </a>
+          <Button
+            href={resume}
+            class="button"
+            icon="ri-download-line"
+            content="Download CV"
+            download="Renz_Glorioso-CV"
+            type="button"
+            target="_blank"
+          />
 
-          <div class="profile__buttons-small">
+          <div className="profile__buttons-small">
             {/* <!-- Insert a real number plus country code --> */}
-            <a
+            <Button
               href="https://wa.me/639175446351"
-              //   taget="_blank"
               class="button button__small button__gray"
-            >
-              <i class="ri-whatsapp-line"></i>
-            </a>
+              icon="ri-whatsapp-line"
+              type="button"
+              target="_blank"
+            />
+
             {/* <!-- Insert your brand name or profile --> */}
-            <a
+            <Button
               href="google.com"
-              //   taget="_blank"
               class="button button__small button__gray"
-            >
-              <i class="ri-messenger-line"></i>
-            </a>
+              icon="ri-messenger-line"
+              type="button"
+              target="_blank"
+            />
           </div>
         </div>
       </div>

@@ -1,10 +1,12 @@
 import Profile from "./Profile";
+import Main from "./Main";
 
 function App() {
   return (
-    <heade className="App">
+    <header className="App">
       <Profile />
-    </heade>
+      <Main />
+    </header>
   );
 }
 
