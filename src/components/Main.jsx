@@ -1,14 +1,19 @@
 import React from "react";
-import Filters from "./Filters";
-import MainContent from "./MainContent";
-import { filterTabs } from "../js/main";
+import Tabs from "./Tabs";
+import ProjectsTab from "./ProjectsTab";
+import SkillsTab from "./SkillsTab";
 
 function Main() {
   return (
-    <section className="filters container">
-      <Filters change={filterTabs} />
-      <MainContent />
-    </section>
+    <main className="main">
+      <section className="filters container">
+        <Tabs />
+        <div className="filters__sections">
+          <ProjectsTab />
+          <SkillsTab />
+        </div>
+      </section>
+    </main>
   );
 }
 

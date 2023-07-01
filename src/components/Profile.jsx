@@ -1,12 +1,9 @@
 import perfil2 from "../img/perfil2.png";
 import resume from "../pdf/Renz_Glorioso-CV.docx.pdf";
-import socials from "../js/main";
+import socials from "../js/socials";
 import { changeTheme } from "../js/main";
-
 import Button from "./Button";
 import ProfileInfo from "./ProfileInfo";
-
-console.log(changeTheme);
 
 function Profile() {
   return (

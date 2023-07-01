@@ -331,6 +331,7 @@ body.dark-theme {
 .projects__card img {
   width: 100%;
   height: 100%;
+  object-fit: cover;
 }
 
 /* If you prefer the modal to stay visible and not hide, you can leave it at bottom:0. And
